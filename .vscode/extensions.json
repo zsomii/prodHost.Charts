@@ -1,0 +1,7 @@
+{
+  // For more information, visit: https://go.microsoft.com/fwlink/?linkid=827846
+  "recommendations": [
+    "ms-vscode.js-debug-companion",
+    "angular.ng-template"
+  ]
+}

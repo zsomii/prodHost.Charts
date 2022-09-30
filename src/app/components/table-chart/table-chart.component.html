@@ -1,0 +1,25 @@
+<button class="ph-button export-button"  mat-flat-button [matMenuTriggerFor]="menu" width="10%">Export</button>
+<mat-menu #menu="matMenu">
+    <button mat-menu-item (click)="exportTable('xls')">.xls</button>
+    <button mat-menu-item (click)="exportTable('xlsx')">.xlsx</button>
+    <button mat-menu-item (click)="exportTable('csv')">.csv</button>
+    <button mat-menu-item (click)="exportTable('txt')">.txt</button>
+    <button mat-menu-item (click)="exportTable('json')">.json</button>
+</mat-menu>
+
+<div class="container-fluid">
+    <mat-table matTableExporter [dataSource]="dataSource" matSort #exporter="matTableExporter"
+        (matSortChange)="sortDataByColumnName($event.active, $event.direction)">
+
+        <ng-container *ngFor="let disCol of displayedColumns; let colIndex = index" matColumnDef="{{disCol}}">
+            <mat-header-cell *matHeaderCellDef mat-sort-header class="header" [ngStyle]="getHeaderStyle(colIndex)">
+                {{disCol}}</mat-header-cell>
+            <mat-cell *matCellDef="let element" [ngStyle]="getCellStyle(colIndex)"> {{element[colIndex]}}
+            </mat-cell>
+        </ng-container>
+
+        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+    </mat-table>
+
+</div>
