@@ -9,11 +9,55 @@
  * https://github.com/swagger-api/swagger-codegen.git
  * Do not edit the class manually.
  */
-import { ChartBaseDTO } from './chartBaseDTO';
+import { AdvancedPieChartDTO } from './advancedPieChartDTO';
+import { AreaChartDTO } from './areaChartDTO';
+import { BoxChartDTO } from './boxChartDTO';
+import { GaugeChartDTO } from './gaugeChartDTO';
+import { GroupedHorizontalBarChartDTO } from './groupedHorizontalBarChartDTO';
+import { GroupedVerticalBarChartDTO } from './groupedVerticalBarChartDTO';
+import { HeatMapChartDTO } from './heatMapChartDTO';
+import { HorizontalBarChartDTO } from './horizontalBarChartDTO';
+import { NameValueChartDTO } from './nameValueChartDTO';
+import { NormalizedAreaChartDTO } from './normalizedAreaChartDTO';
+import { NormalizedHorizontalBarChartDTO } from './normalizedHorizontalBarChartDTO';
+import { NormalizedVerticalBarChartDTO } from './normalizedVerticalBarChartDTO';
+import { NumberCardChartDTO } from './numberCardChartDTO';
+import { PieChartDTO } from './pieChartDTO';
+import { PieGridChartDTO } from './pieGridChartDTO';
+import { PolarChartDTO } from './polarChartDTO';
+import { SeriesChartDTO } from './seriesChartDTO';
+import { StackedAreaChartDTO } from './stackedAreaChartDTO';
+import { StackedHorizontalBarChartDTO } from './stackedHorizontalBarChartDTO';
+import { StackedVerticalBarChartDTO } from './stackedVerticalBarChartDTO';
+import { TableChartDTO } from './tableChartDTO';
+import { TreeMapChartDTO } from './treeMapChartDTO';
+import { VerticalBarChartDTO } from './verticalBarChartDTO';
 
-export interface BootstrapedChartDTO { 
+export interface BootstrapedChartDTO {
     bootstrapClass: Array<BootstrapedChartDTO.BootstrapClassEnum>;
-    chartData: ChartBaseDTO;
+    chartData: AdvancedPieChartDTO
+    | AreaChartDTO
+    | BoxChartDTO
+    | GaugeChartDTO
+    | GroupedHorizontalBarChartDTO
+    | GroupedVerticalBarChartDTO
+    | HeatMapChartDTO
+    | HorizontalBarChartDTO
+    | NameValueChartDTO
+    | NormalizedAreaChartDTO
+    | NormalizedHorizontalBarChartDTO
+    | NormalizedVerticalBarChartDTO
+    | NumberCardChartDTO
+    | PieChartDTO
+    | PieGridChartDTO
+    | PolarChartDTO
+    | SeriesChartDTO
+    | StackedAreaChartDTO
+    | StackedHorizontalBarChartDTO
+    | StackedVerticalBarChartDTO
+   // | TableChartDTO
+    | TreeMapChartDTO
+    | VerticalBarChartDTO;
 }
 export namespace BootstrapedChartDTO {
     export type BootstrapClassEnum = 'col' | 'col_1' | 'col_2' | 'col_3' | 'col_4' | 'col_5' | 'col_6' | 'col_7' | 'col_8' | 'col_9' | 'col_10' | 'col_11' | 'col_12' | 'col_sm_1' | 'col_sm_2' | 'col_sm_3' | 'col_sm_4' | 'col_sm_5' | 'col_sm_6' | 'col_sm_7' | 'col_sm_8' | 'col_sm_9' | 'col_sm_10' | 'col_sm_11' | 'col_sm_12' | 'col_md_1' | 'col_md_2' | 'col_md_3' | 'col_md_4' | 'col_md_5' | 'col_md_6' | 'col_md_7' | 'col_md_8' | 'col_md_9' | 'col_md_10' | 'col_md_11' | 'col_md_12' | 'col_lg_1' | 'col_lg_2' | 'col_lg_3' | 'col_lg_4' | 'col_lg_5' | 'col_lg_6' | 'col_lg_7' | 'col_lg_8' | 'col_lg_9' | 'col_lg_10' | 'col_lg_11' | 'col_lg_12' | 'col_xl_1' | 'col_xl_2' | 'col_xl_3' | 'col_xl_4' | 'col_xl_5' | 'col_xl_6' | 'col_xl_7' | 'col_xl_8' | 'col_xl_9' | 'col_xl_10' | 'col_xl_11' | 'col_xl_12';

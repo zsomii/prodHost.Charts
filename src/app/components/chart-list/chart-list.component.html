@@ -1,216 +1,213 @@
 <div class="w-full h-full flex flex-row gap-4" *ngIf="charts">
-    <div *ngFor="let chart of charts" [ngClass]="getClass(chart)" class="rounded-md shadow-md bg-white p-4 text-gray-900">
+    <div *ngFor="let chart of charts" [ngClass]="getClass(chart)"
+        class="rounded-md shadow-md bg-white p-4 text-gray-900">
         <h4 class="text-xl lg:text-2xl font-semibold text-gray-900">
             {{ chart.chartData.title }}
         </h4>
         <div [ngSwitch]="chart.chartData.chartType">
-                <ngx-charts-area-chart-stacked *ngSwitchCase="ChartType.StackedAreaChart"
-                    [scheme]="chart.chartData.configuration.colorScheme"
-                    [legend]="chart.chartData.configuration.showLegend"
-                    [legendPosition]="getLegendPosition(chart.chartData.configuration.legendPosition)"
-                    [legendTitle]="chart.chartData.configuration.legendTitle"
-                    [showXAxisLabel]="chart.chartData.configuration.showXAxisLabel"
-                    [showYAxisLabel]="chart.chartData.configuration.showYAxisLabel"
-                    [xAxisLabel]="chart.chartData.configuration.xAxisLabel"
-                    [yAxisLabel]="chart.chartData.configuration.yAxisLabel" 
-                    [xAxis]="true" 
-                    [yAxis]="true"
-                    [results]="(chart.chartData as StackedAreaChartDTO).results"
-                    [animations]="chart.chartData.configuration.animations">
-                </ngx-charts-area-chart-stacked>
+            <ngx-charts-area-chart-stacked *ngSwitchCase="ChartType.StackedAreaChart"
+                [scheme]="getScheme(chart.chartData.configuration.colorScheme)"
+                [legend]="chart.chartData.configuration.showLegend"
+                [legendPosition]="getLegendPosition(chart.chartData.configuration.legendPosition)"
+                [legendTitle]="chart.chartData.configuration.legendTitle"
+                [showXAxisLabel]="chart.chartData.configuration.showXAxisLabel"
+                [showYAxisLabel]="chart.chartData.configuration.showYAxisLabel"
+                [xAxisLabel]="chart.chartData.configuration.xAxisLabel"
+                [yAxisLabel]="chart.chartData.configuration.yAxisLabel" [xAxis]="true" [yAxis]="true"
+                [results]="chart.chartData.results" [animations]="chart.chartData.configuration.animations">
+            </ngx-charts-area-chart-stacked>
 
-                <ngx-charts-area-chart *ngSwitchCase="ChartType.AreaChart"
-                    [scheme]="chart.chartData.configuration.colorScheme"
-                    [legend]="chart.chartData.configuration.showLegend"
-                    [legendPosition]="getLegendPosition(chart.chartData.configuration.legendPosition)"
-                    [legendTitle]="chart.chartData.configuration.legendTitle"
-                    [showXAxisLabel]="chart.chartData.configuration.showXAxisLabel"
-                    [showYAxisLabel]="chart.chartData.configuration.showYAxisLabel"
-                    [xAxisLabel]="chart.chartData.configuration.xAxisLabel"
-                    [yAxisLabel]="chart.chartData.configuration.yAxisLabel" [xAxis]="true" [yAxis]="true"
-                    [results]="chart.chartData.results" [animations]="chart.chartData.configuration.animations">
-                </ngx-charts-area-chart>
+            <ngx-charts-area-chart *ngSwitchCase="ChartType.AreaChart"
+                [scheme]="getScheme(chart.chartData.configuration.colorScheme)"
+                [legend]="chart.chartData.configuration.showLegend"
+                [legendPosition]="getLegendPosition(chart.chartData.configuration.legendPosition)"
+                [legendTitle]="chart.chartData.configuration.legendTitle"
+                [showXAxisLabel]="chart.chartData.configuration.showXAxisLabel"
+                [showYAxisLabel]="chart.chartData.configuration.showYAxisLabel"
+                [xAxisLabel]="chart.chartData.configuration.xAxisLabel"
+                [yAxisLabel]="chart.chartData.configuration.yAxisLabel" [xAxis]="true" [yAxis]="true"
+                [results]="chart.chartData.results" [animations]="chart.chartData.configuration.animations">
+            </ngx-charts-area-chart>
 
-                <ngx-charts-area-chart-normalized *ngSwitchCase="ChartType.NormalizedAreaChart"
-                    [scheme]="chart.chartData.configuration.colorScheme"
-                    [legend]="chart.chartData.configuration.showLegend"
-                    [legendPosition]="getLegendPosition(chart.chartData.configuration.legendPosition)"
-                    [legendTitle]="chart.chartData.configuration.legendTitle"
-                    [showXAxisLabel]="chart.chartData.configuration.showXAxisLabel"
-                    [showYAxisLabel]="chart.chartData.configuration.showYAxisLabel"
-                    [xAxisLabel]="chart.chartData.configuration.xAxisLabel"
-                    [yAxisLabel]="chart.chartData.configuration.yAxisLabel" [xAxis]="true" [yAxis]="true"
-                    [results]="chart.chartData.results" [animations]="chart.chartData.configuration.animations">
-                </ngx-charts-area-chart-normalized>
+            <ngx-charts-area-chart-normalized *ngSwitchCase="ChartType.NormalizedAreaChart"
+                [scheme]="getScheme(chart.chartData.configuration.colorScheme)"
+                [legend]="chart.chartData.configuration.showLegend"
+                [legendPosition]="getLegendPosition(chart.chartData.configuration.legendPosition)"
+                [legendTitle]="chart.chartData.configuration.legendTitle"
+                [showXAxisLabel]="chart.chartData.configuration.showXAxisLabel"
+                [showYAxisLabel]="chart.chartData.configuration.showYAxisLabel"
+                [xAxisLabel]="chart.chartData.configuration.xAxisLabel"
+                [yAxisLabel]="chart.chartData.configuration.yAxisLabel" [xAxis]="true" [yAxis]="true"
+                [results]="chart.chartData.results" [animations]="chart.chartData.configuration.animations">
+            </ngx-charts-area-chart-normalized>
 
-                <ngx-charts-line-chart *ngSwitchCase="ChartType.LineChart"
-                    [scheme]="chart.chartData.configuration.colorScheme"
-                    [legend]="chart.chartData.configuration.showLegend"
-                    [legendPosition]="getLegendPosition(chart.chartData.configuration.legendPosition)"
-                    [legendTitle]="chart.chartData.configuration.legendTitle"
-                    [showXAxisLabel]="chart.chartData.configuration.showXAxisLabel"
-                    [showYAxisLabel]="chart.chartData.configuration.showYAxisLabel"
-                    [xAxisLabel]="chart.chartData.configuration.xAxisLabel"
-                    [yAxisLabel]="chart.chartData.configuration.yAxisLabel" [xAxis]="true" [yAxis]="true"
-                    [results]="chart.chartData.results" [animations]="chart.chartData.configuration.animations">
-                </ngx-charts-line-chart>
+            <ngx-charts-line-chart *ngSwitchCase="ChartType.LineChart"
+                [scheme]="getScheme(chart.chartData.configuration.colorScheme)"
+                [legend]="chart.chartData.configuration.showLegend"
+                [legendPosition]="getLegendPosition(chart.chartData.configuration.legendPosition)"
+                [legendTitle]="chart.chartData.configuration.legendTitle"
+                [showXAxisLabel]="chart.chartData.configuration.showXAxisLabel"
+                [showYAxisLabel]="chart.chartData.configuration.showYAxisLabel"
+                [xAxisLabel]="chart.chartData.configuration.xAxisLabel"
+                [yAxisLabel]="chart.chartData.configuration.yAxisLabel" [xAxis]="true" [yAxis]="true"
+                [results]="chart.chartData.results" [animations]="chart.chartData.configuration.animations">
+            </ngx-charts-line-chart>
 
-                <ngx-charts-bar-horizontal-normalized *ngSwitchCase="ChartType.NormalizedHorizontalBarChart"
-                    [scheme]="chart.chartData.configuration.colorScheme"
-                    [legend]="chart.chartData.configuration.showLegend"
-                    [legendPosition]="getLegendPosition(chart.chartData.configuration.legendPosition)"
-                    [legendTitle]="chart.chartData.configuration.legendTitle"
-                    [showXAxisLabel]="chart.chartData.configuration.showXAxisLabel"
-                    [showYAxisLabel]="chart.chartData.configuration.showYAxisLabel"
-                    [xAxisLabel]="chart.chartData.configuration.xAxisLabel" [xAxis]="true" [yAxis]="true"
-                    [yAxisLabel]="chart.chartData.configuration.yAxisLabel" [results]="chart.chartData.results"
-                    [animations]="chart.chartData.configuration.animations">
-                </ngx-charts-bar-horizontal-normalized>
+            <ngx-charts-bar-horizontal-normalized *ngSwitchCase="ChartType.NormalizedHorizontalBarChart"
+                [scheme]="getScheme(chart.chartData.configuration.colorScheme)"
+                [legend]="chart.chartData.configuration.showLegend"
+                [legendPosition]="getLegendPosition(chart.chartData.configuration.legendPosition)"
+                [legendTitle]="chart.chartData.configuration.legendTitle"
+                [showXAxisLabel]="chart.chartData.configuration.showXAxisLabel"
+                [showYAxisLabel]="chart.chartData.configuration.showYAxisLabel"
+                [xAxisLabel]="chart.chartData.configuration.xAxisLabel" [xAxis]="true" [yAxis]="true"
+                [yAxisLabel]="chart.chartData.configuration.yAxisLabel" [results]="chart.chartData.results"
+                [animations]="chart.chartData.configuration.animations">
+            </ngx-charts-bar-horizontal-normalized>
 
-                <ngx-charts-bar-vertical-stacked *ngSwitchCase="ChartType.StackedVerticalBarChart"
-                    [scheme]="chart.chartData.configuration.colorScheme"
-                    [legend]="chart.chartData.configuration.showLegend"
-                    [legendPosition]="getLegendPosition(chart.chartData.configuration.legendPosition)"
-                    [legendTitle]="chart.chartData.configuration.legendTitle"
-                    [showXAxisLabel]="chart.chartData.configuration.showXAxisLabel"
-                    [showYAxisLabel]="chart.chartData.configuration.showYAxisLabel"
-                    [xAxisLabel]="chart.chartData.configuration.xAxisLabel"
-                    [yAxisLabel]="chart.chartData.configuration.yAxisLabel" [xAxis]="true" [yAxis]="true"
-                    [results]="chart.chartData.results" [animations]="chart.chartData.configuration.animations">
-                </ngx-charts-bar-vertical-stacked>
+            <ngx-charts-bar-vertical-stacked *ngSwitchCase="ChartType.StackedVerticalBarChart"
+                [scheme]="getScheme(chart.chartData.configuration.colorScheme)"
+                [legend]="chart.chartData.configuration.showLegend"
+                [legendPosition]="getLegendPosition(chart.chartData.configuration.legendPosition)"
+                [legendTitle]="chart.chartData.configuration.legendTitle"
+                [showXAxisLabel]="chart.chartData.configuration.showXAxisLabel"
+                [showYAxisLabel]="chart.chartData.configuration.showYAxisLabel"
+                [xAxisLabel]="chart.chartData.configuration.xAxisLabel"
+                [yAxisLabel]="chart.chartData.configuration.yAxisLabel" [xAxis]="true" [yAxis]="true"
+                [results]="chart.chartData.results" [animations]="chart.chartData.configuration.animations">
+            </ngx-charts-bar-vertical-stacked>
 
-                <ngx-charts-bar-vertical *ngSwitchCase="ChartType.VerticalBarChart"
-                    [legend]="chart.chartData.configuration.showLegend"
-                    [legendPosition]="getLegendPosition(chart.chartData.configuration.legendPosition)"
-                    [legendTitle]="chart.chartData.configuration.legendTitle"
-                    [scheme]="chart.chartData.configuration.colorScheme"
-                    [showXAxisLabel]="chart.chartData.configuration.showXAxisLabel"
-                    [showYAxisLabel]="chart.chartData.configuration.showYAxisLabel"
-                    [xAxisLabel]="chart.chartData.configuration.xAxisLabel"
-                    [yAxisLabel]="chart.chartData.configuration.yAxisLabel" [xAxis]="true" [yAxis]="true"
-                    [results]="chart.chartData.results" [animations]="chart.chartData.configuration.animations">
-                </ngx-charts-bar-vertical>
+            <ngx-charts-bar-vertical *ngSwitchCase="ChartType.VerticalBarChart"
+                [legend]="chart.chartData.configuration.showLegend"
+                [legendPosition]="getLegendPosition(chart.chartData.configuration.legendPosition)"
+                [legendTitle]="chart.chartData.configuration.legendTitle"
+                [scheme]="getScheme(chart.chartData.configuration.colorScheme)"
+                [showXAxisLabel]="chart.chartData.configuration.showXAxisLabel"
+                [showYAxisLabel]="chart.chartData.configuration.showYAxisLabel"
+                [xAxisLabel]="chart.chartData.configuration.xAxisLabel"
+                [yAxisLabel]="chart.chartData.configuration.yAxisLabel" [xAxis]="true" [yAxis]="true"
+                [results]="chart.chartData.results" [animations]="chart.chartData.configuration.animations">
+            </ngx-charts-bar-vertical>
 
-                <ngx-charts-bar-horizontal-2d *ngSwitchCase="ChartType.GroupedHorizontalBarChart"
-                    [legend]="chart.chartData.configuration.showLegend"
-                    [legendPosition]="getLegendPosition(chart.chartData.configuration.legendPosition)"
-                    [legendTitle]="chart.chartData.configuration.legendTitle"
-                    [scheme]="chart.chartData.configuration.colorScheme"
-                    [showXAxisLabel]="chart.chartData.configuration.showXAxisLabel"
-                    [showYAxisLabel]="chart.chartData.configuration.showYAxisLabel"
-                    [xAxisLabel]="chart.chartData.configuration.xAxisLabel"
-                    [yAxisLabel]="chart.chartData.configuration.yAxisLabel" [xAxis]="true" [yAxis]="true"
-                    [results]="chart.chartData.results" [animations]="chart.chartData.configuration.animations">
-                </ngx-charts-bar-horizontal-2d>
+            <ngx-charts-bar-horizontal-2d *ngSwitchCase="ChartType.GroupedHorizontalBarChart"
+                [legend]="chart.chartData.configuration.showLegend"
+                [legendPosition]="getLegendPosition(chart.chartData.configuration.legendPosition)"
+                [legendTitle]="chart.chartData.configuration.legendTitle"
+                [scheme]="getScheme(chart.chartData.configuration.colorScheme)"
+                [showXAxisLabel]="chart.chartData.configuration.showXAxisLabel"
+                [showYAxisLabel]="chart.chartData.configuration.showYAxisLabel"
+                [xAxisLabel]="chart.chartData.configuration.xAxisLabel"
+                [yAxisLabel]="chart.chartData.configuration.yAxisLabel" [xAxis]="true" [yAxis]="true"
+                [results]="chart.chartData.results" [animations]="chart.chartData.configuration.animations">
+            </ngx-charts-bar-horizontal-2d>
 
-                <ngx-charts-bar-vertical-normalized *ngSwitchCase="ChartType.NormalizedVerticalBarChart"
-                    [legend]="chart.chartData.configuration.showLegend"
-                    [legendPosition]="getLegendPosition(chart.chartData.configuration.legendPosition)"
-                    [legendTitle]="chart.chartData.configuration.legendTitle"
-                    [scheme]="chart.chartData.configuration.colorScheme"
-                    [showXAxisLabel]="chart.chartData.configuration.showXAxisLabel"
-                    [showYAxisLabel]="chart.chartData.configuration.showYAxisLabel"
-                    [xAxisLabel]="chart.chartData.configuration.xAxisLabel"
-                    [yAxisLabel]="chart.chartData.configuration.yAxisLabel" [xAxis]="true" [yAxis]="true"
-                    [results]="chart.chartData.results" [animations]="chart.chartData.configuration.animations">
-                </ngx-charts-bar-vertical-normalized>
+            <ngx-charts-bar-vertical-normalized *ngSwitchCase="ChartType.NormalizedVerticalBarChart"
+                [legend]="chart.chartData.configuration.showLegend"
+                [legendPosition]="getLegendPosition(chart.chartData.configuration.legendPosition)"
+                [legendTitle]="chart.chartData.configuration.legendTitle"
+                [scheme]="getScheme(chart.chartData.configuration.colorScheme)"
+                [showXAxisLabel]="chart.chartData.configuration.showXAxisLabel"
+                [showYAxisLabel]="chart.chartData.configuration.showYAxisLabel"
+                [xAxisLabel]="chart.chartData.configuration.xAxisLabel"
+                [yAxisLabel]="chart.chartData.configuration.yAxisLabel" [xAxis]="true" [yAxis]="true"
+                [results]="chart.chartData.results" [animations]="chart.chartData.configuration.animations">
+            </ngx-charts-bar-vertical-normalized>
 
-                <ngx-charts-bar-horizontal-stacked *ngSwitchCase="ChartType.StackedHorizontalBarChart"
-                    [legend]="chart.chartData.configuration.showLegend"
-                    [legendPosition]="getLegendPosition(chart.chartData.configuration.legendPosition)"
-                    [legendTitle]="chart.chartData.configuration.legendTitle"
-                    [scheme]="chart.chartData.configuration.colorScheme"
-                    [showXAxisLabel]="chart.chartData.configuration.showXAxisLabel"
-                    [showYAxisLabel]="chart.chartData.configuration.showYAxisLabel"
-                    [xAxisLabel]="chart.chartData.configuration.xAxisLabel"
-                    [yAxisLabel]="chart.chartData.configuration.yAxisLabel" [xAxis]="true" [yAxis]="true"
-                    [results]="chart.chartData.results" [animations]="chart.chartData.configuration.animations">
-                </ngx-charts-bar-horizontal-stacked>
+            <ngx-charts-bar-horizontal-stacked *ngSwitchCase="ChartType.StackedHorizontalBarChart"
+                [legend]="chart.chartData.configuration.showLegend"
+                [legendPosition]="getLegendPosition(chart.chartData.configuration.legendPosition)"
+                [legendTitle]="chart.chartData.configuration.legendTitle"
+                [scheme]="getScheme(chart.chartData.configuration.colorScheme)"
+                [showXAxisLabel]="chart.chartData.configuration.showXAxisLabel"
+                [showYAxisLabel]="chart.chartData.configuration.showYAxisLabel"
+                [xAxisLabel]="chart.chartData.configuration.xAxisLabel"
+                [yAxisLabel]="chart.chartData.configuration.yAxisLabel" [xAxis]="true" [yAxis]="true"
+                [results]="chart.chartData.results" [animations]="chart.chartData.configuration.animations">
+            </ngx-charts-bar-horizontal-stacked>
 
-                <ngx-charts-bar-vertical-2d *ngSwitchCase="ChartType.GroupedVerticalBarChart"
-                    [legend]="chart.chartData.configuration.showLegend"
-                    [legendPosition]="getLegendPosition(chart.chartData.configuration.legendPosition)"
-                    [legendTitle]="chart.chartData.configuration.legendTitle"
-                    [scheme]="chart.chartData.configuration.colorScheme"
-                    [showXAxisLabel]="chart.chartData.configuration.showXAxisLabel"
-                    [showYAxisLabel]="chart.chartData.configuration.showYAxisLabel"
-                    [xAxisLabel]="chart.chartData.configuration.xAxisLabel"
-                    [yAxisLabel]="chart.chartData.configuration.yAxisLabel" [xAxis]="true" [yAxis]="true"
-                    [results]="chart.chartData.results" [animations]="chart.chartData.configuration.animations">
-                </ngx-charts-bar-vertical-2d>
+            <ngx-charts-bar-vertical-2d *ngSwitchCase="ChartType.GroupedVerticalBarChart"
+                [legend]="chart.chartData.configuration.showLegend"
+                [legendPosition]="getLegendPosition(chart.chartData.configuration.legendPosition)"
+                [legendTitle]="chart.chartData.configuration.legendTitle"
+                [scheme]="getScheme(chart.chartData.configuration.colorScheme)"
+                [showXAxisLabel]="chart.chartData.configuration.showXAxisLabel"
+                [showYAxisLabel]="chart.chartData.configuration.showYAxisLabel"
+                [xAxisLabel]="chart.chartData.configuration.xAxisLabel"
+                [yAxisLabel]="chart.chartData.configuration.yAxisLabel" [xAxis]="true" [yAxis]="true"
+                [results]="chart.chartData.results" [animations]="chart.chartData.configuration.animations">
+            </ngx-charts-bar-vertical-2d>
 
-                <ngx-charts-bar-horizontal *ngSwitchCase="ChartType.HorizontalBarChart"
-                    [legend]="chart.chartData.configuration.showLegend"
-                    [legendPosition]="getLegendPosition(chart.chartData.configuration.legendPosition)"
-                    [legendTitle]="chart.chartData.configuration.legendTitle"
-                    [scheme]="chart.chartData.configuration.colorScheme"
-                    [showXAxisLabel]="chart.chartData.configuration.showXAxisLabel"
-                    [showYAxisLabel]="chart.chartData.configuration.showYAxisLabel"
-                    [xAxisLabel]="chart.chartData.configuration.xAxisLabel"
-                    [yAxisLabel]="chart.chartData.configuration.yAxisLabel" [xAxis]="true" [yAxis]="true"
-                    [results]="chart.chartData.results" [animations]="chart.chartData.configuration.animations">
-                </ngx-charts-bar-horizontal>
+            <ngx-charts-bar-horizontal *ngSwitchCase="ChartType.HorizontalBarChart"
+                [legend]="chart.chartData.configuration.showLegend"
+                [legendPosition]="getLegendPosition(chart.chartData.configuration.legendPosition)"
+                [legendTitle]="chart.chartData.configuration.legendTitle"
+                [scheme]="getScheme(chart.chartData.configuration.colorScheme)"
+                [showXAxisLabel]="chart.chartData.configuration.showXAxisLabel"
+                [showYAxisLabel]="chart.chartData.configuration.showYAxisLabel"
+                [xAxisLabel]="chart.chartData.configuration.xAxisLabel"
+                [yAxisLabel]="chart.chartData.configuration.yAxisLabel" [xAxis]="true" [yAxis]="true"
+                [results]="chart.chartData.results" [animations]="chart.chartData.configuration.animations">
+            </ngx-charts-bar-horizontal>
 
-                <ngx-charts-pie-grid *ngSwitchCase="ChartType.PieGridChart"
-                    [scheme]="chart.chartData.configuration.colorScheme" [results]="chart.chartData.results">
-                </ngx-charts-pie-grid>
+            <ngx-charts-pie-grid *ngSwitchCase="ChartType.PieGridChart"
+                [scheme]="getScheme(chart.chartData.configuration.colorScheme)" [results]="chart.chartData.results">
+            </ngx-charts-pie-grid>
 
-                <ngx-charts-advanced-pie-chart *ngSwitchCase="ChartType.AdvancedPieChart"
-                    [scheme]="chart.chartData.configuration.colorScheme" [results]="chart.chartData.results"
-                    [animations]="chart.chartData.configuration.animations">
-                </ngx-charts-advanced-pie-chart>
+            <ngx-charts-advanced-pie-chart *ngSwitchCase="ChartType.AdvancedPieChart"
+                [scheme]="getScheme(chart.chartData.configuration.colorScheme)" [results]="chart.chartData.results"
+                [animations]="chart.chartData.configuration.animations">
+            </ngx-charts-advanced-pie-chart>
 
-                <ngx-charts-pie-chart *ngSwitchCase="ChartType.PieChart" [labels]="true"
-                    [legend]="chart.chartData.configuration.showLegend"
-                    [legendPosition]="getLegendPosition(chart.chartData.configuration.legendPosition)"
-                    [legendTitle]="chart.chartData.configuration.legendTitle"
-                    [scheme]="chart.chartData.configuration.colorScheme" [results]="chart.chartData.results"
-                    [animations]="chart.chartData.configuration.animations">
-                </ngx-charts-pie-chart>
+            <ngx-charts-pie-chart *ngSwitchCase="ChartType.PieChart" [labels]="true"
+                [legend]="chart.chartData.configuration.showLegend"
+                [legendPosition]="getLegendPosition(chart.chartData.configuration.legendPosition)"
+                [legendTitle]="chart.chartData.configuration.legendTitle"
+                [scheme]="getScheme(chart.chartData.configuration.colorScheme)" [results]="chart.chartData.results"
+                [animations]="chart.chartData.configuration.animations">
+            </ngx-charts-pie-chart>
 
-                <ngx-charts-heat-map *ngSwitchCase="ChartType.HeatMapChart"
-                    [legend]="chart.chartData.configuration.showLegend"
-                    [legendPosition]="getLegendPosition(chart.chartData.configuration.legendPosition)"
-                    [legendTitle]="chart.chartData.configuration.legendTitle"
-                    [scheme]="chart.chartData.configuration.colorScheme"
-                    [showXAxisLabel]="chart.chartData.configuration.showXAxisLabel"
-                    [showYAxisLabel]="chart.chartData.configuration.showYAxisLabel"
-                    [xAxisLabel]="chart.chartData.configuration.xAxisLabel"
-                    [yAxisLabel]="chart.chartData.configuration.yAxisLabel" [xAxis]="true" [yAxis]="true"
-                    [results]="chart.chartData.results" [animations]="chart.chartData.configuration.animations">
-                </ngx-charts-heat-map>
+            <ngx-charts-heat-map *ngSwitchCase="ChartType.HeatMapChart"
+                [legend]="chart.chartData.configuration.showLegend"
+                [legendPosition]="getLegendPosition(chart.chartData.configuration.legendPosition)"
+                [legendTitle]="chart.chartData.configuration.legendTitle"
+                [scheme]="getScheme(chart.chartData.configuration.colorScheme)"
+                [showXAxisLabel]="chart.chartData.configuration.showXAxisLabel"
+                [showYAxisLabel]="chart.chartData.configuration.showYAxisLabel"
+                [xAxisLabel]="chart.chartData.configuration.xAxisLabel"
+                [yAxisLabel]="chart.chartData.configuration.yAxisLabel" [xAxis]="true" [yAxis]="true"
+                [results]="chart.chartData.results" [animations]="chart.chartData.configuration.animations">
+            </ngx-charts-heat-map>
 
-                <ngx-charts-gauge *ngSwitchCase="ChartType.GaugeChart"
-                        [legend]="chart.chartData.configuration.showLegend"
-                        [legendTitle]="chart.chartData.configuration.legendTitle"
-                        [legendPosition]="getLegendPosition(chart.chartData.configuration.legendPosition)"
-                        [scheme]="chart.chartData.configuration.colorScheme" [results]="chart.chartData.results"
-                        [animations]="chart.chartData.configuration.animations">
-                    </ngx-charts-gauge>
+            <ngx-charts-gauge *ngSwitchCase="ChartType.GaugeChart" [legend]="chart.chartData.configuration.showLegend"
+                [legendTitle]="chart.chartData.configuration.legendTitle"
+                [legendPosition]="getLegendPosition(chart.chartData.configuration.legendPosition)"
+                [scheme]="getScheme(chart.chartData.configuration.colorScheme)" [results]="chart.chartData.results"
+                [animations]="chart.chartData.configuration.animations">
+            </ngx-charts-gauge>
 
-                <ngx-charts-polar-chart *ngSwitchCase="ChartType.PolarChart"
-                    [legend]="chart.chartData.configuration.showLegend"
-                    [legendPosition]="getLegendPosition(chart.chartData.configuration.legendPosition)"
-                    [legendTitle]="chart.chartData.configuration.legendTitle"
-                    [scheme]="chart.chartData.configuration.colorScheme"
-                    [showXAxisLabel]="chart.chartData.configuration.showXAxisLabel"
-                    [showYAxisLabel]="chart.chartData.configuration.showYAxisLabel"
-                    [xAxisLabel]="chart.chartData.configuration.xAxisLabel"
-                    [yAxisLabel]="chart.chartData.configuration.yAxisLabel" [xAxis]="true" [yAxis]="true"
-                    [results]="chart.chartData.results" [animations]="chart.chartData.configuration.animations">
-                </ngx-charts-polar-chart>
+            <ngx-charts-polar-chart *ngSwitchCase="ChartType.PolarChart"
+                [legend]="chart.chartData.configuration.showLegend"
+                [legendPosition]="getLegendPosition(chart.chartData.configuration.legendPosition)"
+                [legendTitle]="chart.chartData.configuration.legendTitle"
+                [scheme]="getScheme(chart.chartData.configuration.colorScheme)"
+                [showXAxisLabel]="chart.chartData.configuration.showXAxisLabel"
+                [showYAxisLabel]="chart.chartData.configuration.showYAxisLabel"
+                [xAxisLabel]="chart.chartData.configuration.xAxisLabel"
+                [yAxisLabel]="chart.chartData.configuration.yAxisLabel" [xAxis]="true" [yAxis]="true"
+                [results]="chart.chartData.results" [animations]="chart.chartData.configuration.animations">
+            </ngx-charts-polar-chart>
 
-                <ngx-charts-number-card *ngSwitchCase="ChartType.NumberCardChart"
-                    [scheme]="chart.chartData.configuration.colorScheme" [results]="chart.chartData.results"
-                    [animations]="chart.chartData.configuration.animations">
-                </ngx-charts-number-card>
+            <ngx-charts-number-card *ngSwitchCase="ChartType.NumberCardChart"
+                [scheme]="getScheme(chart.chartData.configuration.colorScheme)" [results]="chart.chartData.results"
+                [animations]="chart.chartData.configuration.animations">
+            </ngx-charts-number-card>
 
-                <ngx-charts-tree-map *ngSwitchCase="ChartType.TreeMapChart"
-                    [scheme]="chart.chartData.configuration.colorScheme" [results]="chart.chartData.results"
-                    [animations]="chart.chartData.configuration.animations">
-                </ngx-charts-tree-map>
+            <ngx-charts-tree-map *ngSwitchCase="ChartType.TreeMapChart"
+                [scheme]="getScheme(chart.chartData.configuration.colorScheme)" [results]="chart.chartData.results"
+                [animations]="chart.chartData.configuration.animations">
+            </ngx-charts-tree-map>
 
-                <app-table-chart *ngSwitchCase="ChartType.TableChart" [data]="chart.chartData"> </app-table-chart>
+            <app-table-chart *ngSwitchCase="ChartType.TableChart" [data]="chart.chartData"> </app-table-chart>
         </div>
     </div>
 </div>

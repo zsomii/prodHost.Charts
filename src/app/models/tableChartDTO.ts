@@ -9,17 +9,9 @@
  * https://github.com/swagger-api/swagger-codegen.git
  * Do not edit the class manually.
  */
-import { ChartConfigurationDTO } from './chartConfigurationDTO';
-import { ChartTypeDTO } from './chartTypeDTO';
-import { DefaultSortDTO, TableColumnDTO } from './models';
-import { UniqueChartIdDTO } from './uniqueChartIdDTO';
+import { ChartBaseDTO, DefaultSortDTO, TableColumnDTO } from './models';
 
-export interface TableChartDTO {
-    chartId: UniqueChartIdDTO;
-    configuration: ChartConfigurationDTO;
-    chartType: ChartTypeDTO;
-    title: string;
-    isAvailable: boolean;
+export interface TableChartDTO  extends ChartBaseDTO {
     columns: Array<TableColumnDTO>;
     defaultSort: DefaultSortDTO;
     rows: Array<Array<string>>;

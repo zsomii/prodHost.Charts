@@ -9,16 +9,10 @@
  * https://github.com/swagger-api/swagger-codegen.git
  * Do not edit the class manually.
  */
-import { ChartConfigurationDTO } from './chartConfigurationDTO';
-import { ChartTypeDTO } from './chartTypeDTO';
+import { ChartBaseDTO } from './chartBaseDTO';
 import { SeriesChartDataEntryDTO } from './seriesChartDataEntryDTO';
-import { UniqueChartIdDTO } from './uniqueChartIdDTO';
 
-export interface NormalizedAreaChartDTO { 
+export interface NormalizedAreaChartDTO extends ChartBaseDTO { 
     results: Array<SeriesChartDataEntryDTO>;
-    chartId: UniqueChartIdDTO;
-    configuration: ChartConfigurationDTO;
-    chartType: ChartTypeDTO;
-    title: string;
-    isAvailable: boolean;
+
 }
